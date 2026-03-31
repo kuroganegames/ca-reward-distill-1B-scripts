@@ -1,0 +1,13 @@
+{
+  "magpie_ja": 30000,
+  "extraction_wiki_ja": 20000,
+  "wizard_math_code_ja": 15000,
+  "oasst2_ja": 10000,
+  "oasst1_ja": 6000,
+  "synthetic_jp_en_coding_ja_only": 6000,
+  "dolly_ja": 4000,
+  "llm_jp_instructions_v1_train": 1000,
+  "oasst2_en_to_ja": 4000,
+  "oasst1_en_to_ja": 4000,
+  "daring_anteater_en_to_ja": 0
+}

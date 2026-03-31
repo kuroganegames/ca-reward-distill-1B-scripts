@@ -1,0 +1,249 @@
+{
+  "output_dir": "/media/kurogane/datasets/ ca-reward-distill/mixed_prompt_pool_custom",
+  "cache_dir": "./data/hf_cache",
+  "counts_preset": "trial",
+  "counts": {
+    "magpie_ja": 15000,
+    "extraction_wiki_ja": 10000,
+    "wizard_math_code_ja": 8000,
+    "oasst2_ja": 6000,
+    "oasst1_ja": 3000,
+    "synthetic_jp_en_coding_ja_only": 3000,
+    "dolly_ja": 2000,
+    "llm_jp_instructions_v1_train": 1000,
+    "oasst2_en_to_ja": 2000,
+    "oasst1_en_to_ja": 2000,
+    "daring_anteater_en_to_ja": 0
+  },
+  "seed": 42,
+  "streaming": true,
+  "dedup": true,
+  "shuffle_buffer_size": 10000,
+  "total_rows": 51300,
+  "sources": [
+    {
+      "alias": "magpie_ja",
+      "requested": 15000,
+      "collected": 15000,
+      "scanned": 15001,
+      "skipped_dedup": 0,
+      "skipped_parse": 1,
+      "streaming_used": true
+    },
+    {
+      "alias": "extraction_wiki_ja",
+      "requested": 10000,
+      "collected": 10000,
+      "scanned": 10000,
+      "skipped_dedup": 0,
+      "skipped_parse": 0,
+      "streaming_used": true
+    },
+    {
+      "alias": "wizard_math_code_ja",
+      "requested": 8000,
+      "collected": 8000,
+      "scanned": 8000,
+      "skipped_dedup": 0,
+      "skipped_parse": 0,
+      "streaming_used": true
+    },
+    {
+      "alias": "oasst2_ja",
+      "requested": 6000,
+      "collected": 6000,
+      "scanned": 9718,
+      "skipped_dedup": 3718,
+      "skipped_parse": 0,
+      "streaming_used": true
+    },
+    {
+      "alias": "oasst1_ja",
+      "requested": 3000,
+      "collected": 3000,
+      "scanned": 3347,
+      "skipped_dedup": 345,
+      "skipped_parse": 2,
+      "streaming_used": true
+    },
+    {
+      "alias": "synthetic_jp_en_coding_ja_only",
+      "requested": 3000,
+      "collected": 3000,
+      "scanned": 10204,
+      "skipped_dedup": 0,
+      "skipped_parse": 7204,
+      "streaming_used": true
+    },
+    {
+      "alias": "dolly_ja",
+      "requested": 2000,
+      "collected": 2000,
+      "scanned": 2018,
+      "skipped_dedup": 18,
+      "skipped_parse": 0,
+      "streaming_used": true
+    },
+    {
+      "alias": "llm_jp_instructions_v1_train",
+      "requested": 1000,
+      "collected": 300,
+      "scanned": 300,
+      "skipped_dedup": 0,
+      "skipped_parse": 0,
+      "streaming_used": true
+    },
+    {
+      "alias": "oasst2_en_to_ja",
+      "requested": 2000,
+      "collected": 2000,
+      "scanned": 2441,
+      "skipped_dedup": 441,
+      "skipped_parse": 0,
+      "streaming_used": true
+    },
+    {
+      "alias": "oasst1_en_to_ja",
+      "requested": 2000,
+      "collected": 2000,
+      "scanned": 3020,
+      "skipped_dedup": 1020,
+      "skipped_parse": 0,
+      "streaming_used": true
+    },
+    {
+      "alias": "daring_anteater_en_to_ja",
+      "requested": 0,
+      "collected": 0,
+      "scanned": 0,
+      "skipped_dedup": 0,
+      "skipped_parse": 0,
+      "streaming_used": true
+    }
+  ],
+  "source_specs": {
+    "magpie_ja": {
+      "alias": "magpie_ja",
+      "path": "llm-jp/magpie-sft-v1.0",
+      "split": "train",
+      "config_name": null,
+      "data_dir": null,
+      "default_lang": "ja",
+      "allowed_prompt_languages": null,
+      "wrap_english_prompt_to_japanese": false,
+      "notes": "Japanese Magpie instruction dataset."
+    },
+    "extraction_wiki_ja": {
+      "alias": "extraction_wiki_ja",
+      "path": "llm-jp/extraction-wiki-ja",
+      "split": "train",
+      "config_name": "v0.3",
+      "data_dir": null,
+      "default_lang": "ja",
+      "allowed_prompt_languages": null,
+      "wrap_english_prompt_to_japanese": false,
+      "notes": "Japanese extraction / structuring dataset from Wikipedia."
+    },
+    "wizard_math_code_ja": {
+      "alias": "wizard_math_code_ja",
+      "path": "llm-jp/wizardlm8x22b-logical-math-coding-sft-ja",
+      "split": "train",
+      "config_name": null,
+      "data_dir": null,
+      "default_lang": "ja",
+      "allowed_prompt_languages": null,
+      "wrap_english_prompt_to_japanese": false,
+      "notes": "Logical / math / coding heavy Japanese dataset."
+    },
+    "oasst2_ja": {
+      "alias": "oasst2_ja",
+      "path": "llm-jp/oasst2-33k-ja",
+      "split": "train",
+      "config_name": null,
+      "data_dir": null,
+      "default_lang": "ja",
+      "allowed_prompt_languages": null,
+      "wrap_english_prompt_to_japanese": false,
+      "notes": "Japanese OASST2 translation."
+    },
+    "oasst1_ja": {
+      "alias": "oasst1_ja",
+      "path": "llm-jp/oasst1-21k-ja",
+      "split": "train",
+      "config_name": null,
+      "data_dir": null,
+      "default_lang": "ja",
+      "allowed_prompt_languages": null,
+      "wrap_english_prompt_to_japanese": false,
+      "notes": "Japanese OASST1 translation."
+    },
+    "synthetic_jp_en_coding_ja_only": {
+      "alias": "synthetic_jp_en_coding_ja_only",
+      "path": "llm-jp/Synthetic-JP-EN-Coding-Dataset",
+      "split": "train",
+      "config_name": null,
+      "data_dir": null,
+      "default_lang": "auto",
+      "allowed_prompt_languages": [
+        "ja"
+      ],
+      "wrap_english_prompt_to_japanese": false,
+      "notes": "Mixed JP/EN coding dataset; keep Japanese prompts only by default."
+    },
+    "dolly_ja": {
+      "alias": "dolly_ja",
+      "path": "llm-jp/databricks-dolly-15k-ja",
+      "split": "train",
+      "config_name": null,
+      "data_dir": null,
+      "default_lang": "ja",
+      "allowed_prompt_languages": null,
+      "wrap_english_prompt_to_japanese": false,
+      "notes": "Japanese Dolly translation."
+    },
+    "llm_jp_instructions_v1_train": {
+      "alias": "llm_jp_instructions_v1_train",
+      "path": "llm-jp/llm-jp-instructions",
+      "split": "train",
+      "config_name": null,
+      "data_dir": "v1.0",
+      "default_lang": "ja",
+      "allowed_prompt_languages": null,
+      "wrap_english_prompt_to_japanese": false,
+      "notes": "Manually created Japanese instruction dataset (v1.0/train)."
+    },
+    "oasst2_en_to_ja": {
+      "alias": "oasst2_en_to_ja",
+      "path": "llm-jp/oasst2-33k-en",
+      "split": "train",
+      "config_name": null,
+      "data_dir": null,
+      "default_lang": "en",
+      "allowed_prompt_languages": null,
+      "wrap_english_prompt_to_japanese": true,
+      "notes": "English OASST2 prompts; append request to answer in Japanese."
+    },
+    "oasst1_en_to_ja": {
+      "alias": "oasst1_en_to_ja",
+      "path": "llm-jp/oasst1-21k-en",
+      "split": "train",
+      "config_name": null,
+      "data_dir": null,
+      "default_lang": "en",
+      "allowed_prompt_languages": null,
+      "wrap_english_prompt_to_japanese": true,
+      "notes": "English OASST1 prompts; append request to answer in Japanese."
+    },
+    "daring_anteater_en_to_ja": {
+      "alias": "daring_anteater_en_to_ja",
+      "path": "nvidia/Daring-Anteater",
+      "split": "train",
+      "config_name": null,
+      "data_dir": null,
+      "default_lang": "en",
+      "allowed_prompt_languages": null,
+      "wrap_english_prompt_to_japanese": true,
+      "notes": "Optional larger English source; disabled by default in trial preset."
+    }
+  }
+}
