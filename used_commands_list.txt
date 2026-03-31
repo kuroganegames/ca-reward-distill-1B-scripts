@@ -1,0 +1,51 @@
+python build_mixed_prompt_dataset.py \
+  --output-dir ./mixed_prompt_pool_custom \
+  --cache-dir ./data/hf_cache \
+  --counts-preset trial \
+  --counts-json ./trial_counts_example.json \
+  --streaming
+
+python test_reload_mixed_dataset.py \
+  --dataset-dir ./mixed_prompt_pool_custom \
+  --summary-json ./mixed_prompt_pool_custom_build_summary.json
+
+python generate_teacher_dataset.py \
+  --prompt-dataset-dir ./mixed_prompt_pool_custom \
+  --output-dir ./teacher_data_trial \
+  --cache-dir ./data/hf_cache \
+  --generator-models sbintuitions/sarashina2.2-1b-instruct-v0.1 \
+  --num-candidates-per-prompt 4 \
+  --prompt-micro-batch-size 8 \
+  --flush-prompt-count 64 \
+  --teacher-batch-size 32 \
+  --max-new-tokens 512
+
+python test_reload_teacher_dataset.py \
+  --dataset-dir ./teacher_data_trial/final_dataset \
+  --summary-json ./teacher_data_trial/final_summary.json \
+  --check-unique-sample-id
+
+CUDA_VISIBLE_DEVICES=1 python train_student_rm_regression.py \
+  --teacher-dataset-dir ./teacher_data_trial/final_dataset \
+  --output-dir ./student_rm_regression_trial \
+  --cache-dir ./data/hf_cache \
+  --max-length 2048 \
+  --per-device-train-batch-size 2 \
+  --gradient-accumulation-steps 16 \
+  --learning-rate 1e-5 \
+  --num-train-epochs 1 \
+  --gradient-checkpointing
+
+
+CUDA_VISIBLE_DEVICES=1 python evaluate_student_rm_against_teacher.py \
+  --model-dir ./student_rm_regression_trial/final_model \
+  --teacher-dataset-dir ./teacher_data_trial/final_dataset \
+  --output-dir ./student_rm_eval \
+  --batch-size 8 \
+  --max-length 2048 \
+  --save-predictions-dataset
+
+python score_student_rm_minimal.py \
+  --model-dir ./student_rm_regression_trial/final_model \
+  --prompt "富士山について短く説明して" \
+  --response "富士山は日本で最も高い山です。"
